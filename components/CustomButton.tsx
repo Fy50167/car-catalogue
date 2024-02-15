@@ -8,7 +8,7 @@ export default function CustomButton({ title, btnType, containerStyles, handleCl
         <button
         disabled = {false}
         type = {btnType || 'button'}
-        className = {`custom-btn ${containerStyles}`}
+        className = {`custom-btn border-black-100 border ${containerStyles}`}
         onClick = {handleClick}
         >
             <span className = {`flex-1`}>
