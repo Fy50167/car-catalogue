@@ -57,7 +57,57 @@ export default function CarDetails({
                                         ></Image>
                                     </button>
                                     <div className='flex-1 flex flex-col gap-3'>
-                                        <div className='relative w-full h-40 bg-pattern bg-over bg-center rounded-lg'></div>
+                                        <div className='relative w-full h-40 bg-pattern bg-over bg-center rounded-lg'>
+                                            <Image
+                                                src='/hero.png'
+                                                width={50}
+                                                height={50}
+                                                alt='car model'
+                                                fill
+                                                priority
+                                                className='object-contain'
+                                            />
+                                        </div>
+
+                                        <div className='flex gap-3'>
+                                            <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
+                                                <Image
+                                                    src='/hero.png'
+                                                    width={50}
+                                                    height={50}
+                                                    alt='car model'
+                                                    fill
+                                                    priority
+                                                    className='object-contain'
+                                                />
+
+                                                <Image
+                                                    src='/hero.png'
+                                                    width={50}
+                                                    height={50}
+                                                    alt='car model'
+                                                    fill
+                                                    priority
+                                                    className='object-contain'
+                                                />
+
+                                                <Image
+                                                    src='/hero.png'
+                                                    width={50}
+                                                    height={50}
+                                                    alt='car model'
+                                                    fill
+                                                    priority
+                                                    className='object-contain'
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className='flex-1 flex flex-col gap-2'>
+                                        <h2 className='font-semibold text-xl capitalize'>
+                                            {car.make} {car.model}
+                                        </h2>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
