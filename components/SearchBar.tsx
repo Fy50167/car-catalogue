@@ -1,7 +1,8 @@
 'use client';
 import SearchManufacturer from './SearchManufacturer';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
     return (
@@ -20,8 +21,37 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => {
 export default function SearchBar() {
     const [manufacturer, setManufacturer] = useState('');
     const [model, setModel] = useState('');
+    const router = useRouter();
 
-    const handleSearch = () => {};
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        if (manufacturer === '' && model === '') {
+            return alert('Both search filters are empty!');
+        }
+    };
+
+    const updateSearchParams = (model: string, manufacturer: string) => {
+        const searchParams = new URLSearchParams(window.location.search);
+
+        if (model) {
+            searchParams.set('model', model);
+        } else {
+            searchParams.delete('model');
+        }
+
+        if (manufacturer) {
+            searchParams.set('manufacturer', manufacturer);
+        } else {
+            searchParams.delete('manufacturer');
+        }
+
+        const newPathname = `${
+            window.location.pathname
+        }?${searchParams.toString()}`;
+
+        router.push(newPathname);
+    };
 
     return (
         <form className='searchbar' onSubmit={handleSearch}>
