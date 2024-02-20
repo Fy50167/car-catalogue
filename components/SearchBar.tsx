@@ -29,6 +29,8 @@ export default function SearchBar() {
         if (manufacturer === '' && model === '') {
             return alert('Both search filters are empty!');
         }
+
+        updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase());
     };
 
     const updateSearchParams = (model: string, manufacturer: string) => {
@@ -50,7 +52,7 @@ export default function SearchBar() {
             window.location.pathname
         }?${searchParams.toString()}`;
 
-        router.push(newPathname);
+        router.push(newPathname, { scroll: false });
     };
 
     return (

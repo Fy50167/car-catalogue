@@ -15,6 +15,7 @@ export async function fetchCars(filters: FilterProps) {
       });
 
    const result = await response.json();
+   console.log('cars hit');
 
    return result
 }
