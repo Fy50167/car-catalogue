@@ -1,6 +1,6 @@
 import { fetchCars } from '@/utils';
 import { HomeProps } from '@/types';
-import { CarCard, SearchBar, CustomFilter, Hero } from '@/components';
+import { CarCard, SearchBar, CustomFilter, Hero, ShowMore } from '@/components';
 import { fuels, yearsOfProduction } from '@/constants';
 
 export default async function Home({ searchParams }: HomeProps) {
@@ -45,6 +45,7 @@ export default async function Home({ searchParams }: HomeProps) {
                                 <CarCard car={car} key={index} />
                             ))}
                         </div>
+                        <ShowMore />
                     </section>
                 ) : (
                     <div className='home__error-container'>
