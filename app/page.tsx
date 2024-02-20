@@ -3,6 +3,7 @@
 import { fetchCars } from '@/utils';
 import { HomeProps } from '@/types';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { CarCard, SearchBar, CustomFilter, Hero, ShowMore } from '@/components';
 import { fuels, yearsOfProduction } from '@/constants';
 
@@ -35,9 +36,6 @@ export default function Home() {
         getCars();
     }, [fuel, limit, model, year, manufacturer]);
 
-    const isDataEmpty =
-        !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-
     return (
         <main className='overflow-hidden'>
             <Hero />
@@ -49,27 +47,49 @@ export default function Home() {
                 </div>
 
                 <div className='home__filters'>
-                    <SearchBar />
+                    <SearchBar
+                        setManufacturer={setManufacturer}
+                        setModel={setModel}
+                    />
 
                     <div className='home__filter-container'>
-                        <CustomFilter title='fuel' options={fuels} />
+                        <CustomFilter
+                            title='fuel'
+                            options={fuels}
+                            setFilter={setFilter}
+                        />
                         <CustomFilter
                             title='year'
                             options={yearsOfProduction}
+                            setFilter={setYear}
                         />
                     </div>
                 </div>
 
-                {!isDataEmpty ? (
+                {allCars.length > 0 ? (
                     <section>
                         <div className='home__cars-wrapper'>
                             {allCars?.map((car, index) => (
                                 <CarCard car={car} key={index} />
                             ))}
                         </div>
+
+                        {loading && (
+                            <div className='mt-16 w-full flex-center'>
+                                <Image
+                                    src='/loader.svg'
+                                    alt='loader'
+                                    width={50}
+                                    height={50}
+                                    className='object-contain'
+                                />
+                            </div>
+                        )}
+
                         <ShowMore
-                            pageNumber={(limit || 10) / 10}
-                            isNext={(limit || 10) > allCars.length}
+                            pageNumber={limit / 10}
+                            isNext={limit > allCars.length}
+                            setLimit={setLimit}
                         />
                     </section>
                 ) : (
