@@ -1,6 +1,6 @@
-import { CarProps } from '@/types';
-('use client');
+'use client';
 
+import { CarProps } from '@/types';
 import Image from 'next/image';
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
@@ -31,7 +31,7 @@ export default function CarDetails({
                     >
                         <div className='fixed inset-0 bg-black bg-opacity-25' />
                     </Transition.Child>
-                    <div className='fixed nset-0 overflow-y-auto'>
+                    <div className='fixed inset-0 overflow-y-auto'>
                         <div className='flex min-h-full items-center justify-center p-4 text-center'>
                             <Transition.Child
                                 as={Fragment}
@@ -60,47 +60,11 @@ export default function CarDetails({
                                         <div className='relative w-full h-40 bg-pattern bg-over bg-center rounded-lg'>
                                             <Image
                                                 src='/hero.png'
-                                                width={50}
-                                                height={50}
                                                 alt='car model'
                                                 fill
                                                 priority
                                                 className='object-contain'
                                             />
-                                        </div>
-
-                                        <div className='flex gap-3'>
-                                            <div className='flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg'>
-                                                <Image
-                                                    src='/hero.png'
-                                                    width={50}
-                                                    height={50}
-                                                    alt='car model'
-                                                    fill
-                                                    priority
-                                                    className='object-contain'
-                                                />
-
-                                                <Image
-                                                    src='/hero.png'
-                                                    width={50}
-                                                    height={50}
-                                                    alt='car model'
-                                                    fill
-                                                    priority
-                                                    className='object-contain'
-                                                />
-
-                                                <Image
-                                                    src='/hero.png'
-                                                    width={50}
-                                                    height={50}
-                                                    alt='car model'
-                                                    fill
-                                                    priority
-                                                    className='object-contain'
-                                                />
-                                            </div>
                                         </div>
                                     </div>
 

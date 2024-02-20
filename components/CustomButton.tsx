@@ -25,6 +25,8 @@ export default function CustomButton({
                         src={rightIcon}
                         alt='right icon'
                         className='object-contain'
+                        width={20}
+                        height={20}
                     />
                 </div>
             )}
