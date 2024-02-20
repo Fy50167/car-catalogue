@@ -25,6 +25,7 @@ export default function Home() {
                 limit: limit || 10,
                 model: model || '',
             });
+            setAllCars(result);
         } catch (error) {
             console.log(error);
         } finally {
@@ -56,7 +57,7 @@ export default function Home() {
                         <CustomFilter
                             title='fuel'
                             options={fuels}
-                            setFilter={setFilter}
+                            setFilter={setFuel}
                         />
                         <CustomFilter
                             title='year'
