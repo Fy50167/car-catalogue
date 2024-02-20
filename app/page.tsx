@@ -1,6 +1,7 @@
 import { fetchCars } from '@/utils';
 import { HomeProps } from '@/types';
 import { CarCard, SearchBar, CustomFilter, Hero } from '@/components';
+import { fuels, yearsOfProduction } from '@/constants';
 
 export default async function Home({ searchParams }: HomeProps) {
     console.log(searchParams);
@@ -29,8 +30,11 @@ export default async function Home({ searchParams }: HomeProps) {
                     <SearchBar />
 
                     <div className='home__filter-container'>
-                        <CustomFilter title='fuel' />
-                        <CustomFilter title='year' />
+                        <CustomFilter title='fuel' options={fuels} />
+                        <CustomFilter
+                            title='year'
+                            options={yearsOfProduction}
+                        />
                     </div>
                 </div>
 
